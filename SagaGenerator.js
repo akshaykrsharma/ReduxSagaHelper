@@ -8,8 +8,8 @@ var fs = require('fs');
 
 	let KEY = '';
 	let CAMELKEY = '';
-	readline.question(`Enter Key`, name => {
-		console.log(`Hello ${name}!`);
+	readline.question(`Enter any key (e.g. LOGIN_API)`, name => {
+		console.log(`Just check the files in Redux folders ${name}!`);
 		KEY = name;
 		CAMELKEY = KEY.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 		CAMELKEY = CAMELKEY.substring(0, 1).toUpperCase() + CAMELKEY.substring(1);
