@@ -1,0 +1,5 @@
+export default {
+	KEY: 'KEY',
+	KEY_SUCCESS: 'KEY_SUCCESS',
+	KEY_ERROR: 'KEY_ERROR'
+};

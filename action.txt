@@ -1,0 +1,23 @@
+import { KEY, KEY_SUCCESS, KEY_ERROR } from '../type';
+
+export function fetchingCAMELKEY(payload: Object, config: Object) {
+	return {
+		type: KEY,
+		payload: payload,
+		config
+	};
+}
+
+export const getCAMELKEY = (payload: Object) => {
+	return {
+		type: KEY_SUCCESS,
+		payload: payload
+	};
+};
+
+export function getCAMELKEYFailure(error: Object) {
+	return {
+		type: KEY_ERROR,
+		payload: error
+	};
+}
