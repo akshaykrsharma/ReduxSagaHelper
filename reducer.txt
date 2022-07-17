@@ -12,12 +12,12 @@ const CAMELKEYReducer = (state = INITIAL_STATE, action: reduxPropType) => {
 			return {
 				...state,
 				isFetching: true,
-				payload: null
+				CAMELKEYData: null
 			};
 		case KEY_SUCCESS:
 			return {
 				...state,
-				payload: action.payload,
+				CAMELKEYData: action.payload,
 				isFetching: false,
 				error: null
 			};
