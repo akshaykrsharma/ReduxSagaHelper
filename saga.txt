@@ -4,7 +4,7 @@ import EndPoints from '../../networking/EndPoints';
 import { KEY, KEY_SUCCESS, KEY_ERROR } from '../type';
 
 // Worker
-function* fetchingCAMELKEY(params: any, config: any = {}): Generator<any, any, any> {
+function* fetchingPASCALKEY(params: any, config: any = {}): Generator<any, any, any> {
 	try {
 		const response = yield call(
 			APIManager.createPromise,
@@ -25,10 +25,10 @@ function* fetchingCAMELKEY(params: any, config: any = {}): Generator<any, any, a
 }
 
 // Watcher
-function* FetchingCAMELKEY() {
-	yield takeEvery(KEY, fetchingCAMELKEY);
+function* FetchingPASCALKEY() {
+	yield takeEvery(KEY, fetchingPASCALKEY);
 }
 
 export default function* rootSaga() {
-	yield all([FetchingCAMELKEY()]);
+	yield all([FetchingPASCALKEY()]);
 }

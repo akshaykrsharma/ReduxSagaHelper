@@ -8,11 +8,12 @@ var fs = require('fs');
 
 	let KEY = '';
 	let CAMELKEY = '';
+	let PASCALKEY = '';
 	readline.question(`Enter any key (e.g. LOGIN_API)`, name => {
 		console.log(`Just check the files in Redux folders ${name}!`);
-		KEY = name;
+		KEY = name.toUpperCase();
 		CAMELKEY = KEY.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
-		CAMELKEY = CAMELKEY.substring(0, 1).toUpperCase() + CAMELKEY.substring(1);
+		PASCALKEY = CAMELKEY.substring(0, 1).toUpperCase() + CAMELKEY.substring(1);
 		readline.close();
 
 		const arrInput = [`./action.txt`, `./reducer.txt`, `./saga.txt`, `./type.txt`];
@@ -31,10 +32,11 @@ var fs = require('fs');
 					return console.log(err);
 				}
 				var updatedData = data;
+				const reg0 = /PASCALKEY/g;
 				const reg1 = /CAMELKEY/g;
 				const reg2 = /KEY/g;
 
-				var newData = !!updatedData && updatedData.replace(reg1, CAMELKEY).replace(reg2, KEY);
+				var newData = !!updatedData && updatedData.replace(reg0, PASCALKEY).replace(reg1, CAMELKEY).replace(reg2, KEY);
 				fs.writeFile(arrOutput[j], newData, 'utf8', function (err) {
 					if (err) return console.log(err);
 				});
